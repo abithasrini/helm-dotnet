@@ -1,0 +1,16 @@
+namespace:
+  name:  dev
+
+deployment:
+  replicacount: 2
+  containerPort: 80
+  image: nishankumar1999/dotnetwebapp
+  
+service:
+  nodeport: 31000
+  port: 80
+  targetPort: 80
+
+
+serviceaccount:
+  name:  demoservice

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  dotnetapplcation
+  namespace: {{.Values.namespace.name}}
+  labels:
+    app:  myapp
+spec:
+  selector:
+    matchLabels:
+      app: app-service
+  replicas: {{.Values.deployment.replicacount}}
+  template:
+    metadata:
+      labels:
+        app:  app-service
+    spec:
+      containers:
+      - name:  container1
+        image: {{.Values.deployment.image}}
+        ports:
+        - containerPort:  {{.Values.deployment.containerPort}}
+          name:  myapp
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5        
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5        
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        

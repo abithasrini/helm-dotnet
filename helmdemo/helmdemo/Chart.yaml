@@ -1,0 +1,4 @@
+apiVersion: v2
+name: dotnethelm
+version: "1.0"
+description: This is the helm chart for dotnet application
