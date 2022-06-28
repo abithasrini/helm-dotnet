@@ -4,7 +4,7 @@ namespace:
 deployment:
   replicacount: 2
   containerPort: 80
-  image: nishankumar1999/dotnetwebapp
+  image: abitha2208/dotnet:52
   
 service:
   nodeport: 31000
